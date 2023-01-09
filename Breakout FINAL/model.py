@@ -8,13 +8,14 @@ class DQN(nn.Module):
         self.conv1 = nn.Conv2d(4, 32, kernel_size=8, stride=4)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=4, stride=2)
         self.conv3 = nn.Conv2d(64, 64, kernel_size=3, stride=1)
-        self.fc1_value = nn.Linear(7*7*64, 512) #value stream 
-
-        #Sonme duelling shit 
-        self.fc1_out_value = nn.Linear(512, 1)
         
+        #layer to estimate the state value function 
+        self.fc1_value = nn.Linear(7*7*64, 512)
+        self.fc1_out_value = nn.Linear(512, 1)
+        #layer to estimate the advantage function
         self.fc2_advantage = nn.Linear(7*7*64, 512)
         self.fc2_out_advantage = nn.Linear(512, outputs)
+        
         self.device = device
     
     def init_weights(self, m):
@@ -33,14 +34,14 @@ class DQN(nn.Module):
         x = x.view(-1, 64*7*7)
         
         """Forward method implementation."""
-        #Some more dueling shit
-        value = F.relu(self.fc1_value(x)) #value stream
-        advantage = F.relu(self.fc2_advantage(x)) #advantage stream
+        #value and advantage streams
+        value = F.relu(self.fc1_value(x)) 
+        advantage = F.relu(self.fc2_advantage(x))
 
         value = self.fc1_out_value(value)
         advantage = self.fc2_out_advantage(advantage)
         
-    
+        #combining value function and advantage function to get the q values
         q = value + advantage - advantage.mean(dim=-1, keepdim=True)
         
         return q
