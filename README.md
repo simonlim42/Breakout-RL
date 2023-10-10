@@ -20,7 +20,7 @@ Rainbow DQN is an extension of the original DQN algorithm that combines various 
 - Double Q-learning: Reducing overestimation of Q-values by using two Q-networks.
 - Prioritized Experience Replay: Sampling transitions based on TD-error priorities.
 - Dueling DQN: Separating state-value and action-advantage functions to improve value estimation.
-- 
+  
 ## Results and Performance
 
 We evaluated the performance of DQN and Rainbow DQN on the Atari Breakout game over a set number of episodes. The performance metrics, learning curves, and visualizations can be found in the `results` directory.
