@@ -36,9 +36,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Acknowledgements
 
 We extend our gratitude to OpenAI for providing the Atari Breakout Gym environment and the research community for their invaluable contributions to reinforcement learning algorithms.
-
----
-
-Delve into the world of reinforcement learning with Breakout-RL. Witness as your agents master the Atari Breakout game through the power of reinforcement learning algorithms! Play, learn, and contribute to the evolution of intelligent gaming agents.
-
-**Disclaimer:** This project is intended for educational purposes and does not endorse any real-world application of video game AI.
