@@ -4,6 +4,8 @@
 
 Breakout-RL is a project dedicated to implementing Reinforcement Learning (RL) algorithms for playing the Atari Breakout game using Python and OpenAI Gym. Within this project, we have developed and compared the performance of both the Deep Q-Network (DQN) and Rainbow DQN algorithms.
 
+To access the final implementation look into FinalBreakout.ipynb.
+
 ## Algorithms Implemented
 
 ### Deep Q-Network (DQN)
